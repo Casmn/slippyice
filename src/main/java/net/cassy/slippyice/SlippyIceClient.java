@@ -9,5 +9,7 @@ public class SlippyIceClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SLIPPY_ICE, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SLIPPY_ICE_STAIRS, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SLIPPY_ICE_SLAB, RenderLayer.getTranslucent());
     }
 }

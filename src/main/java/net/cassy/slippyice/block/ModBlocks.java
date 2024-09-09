@@ -2,6 +2,7 @@ package net.cassy.slippyice.block;
 
 import net.cassy.slippyice.SlippyIce;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
@@ -29,6 +30,10 @@ public class ModBlocks {
             )
     );
 
+    public static final Block SLIPPY_ICE_STAIRS = registerBlock("slippy_ice_stairs", new StairsBlock(ModBlocks.SLIPPY_ICE.getDefaultState(), AbstractBlock.Settings.copy(ModBlocks.SLIPPY_ICE)));
+
+    public static final Block SLIPPY_ICE_SLAB = registerBlock("slippy_ice_slab", new SlabBlock(AbstractBlock.Settings.copy(ModBlocks.SLIPPY_ICE)));
+
     //public static final Block SLIPPY_ICE = registerBlock("slippy_ice",
     //        new Block(AbstractBlock.Settings.create().strength(4f).requiresTool().sounds(BlockSoundGroup.GLASS)));
 
@@ -47,6 +52,15 @@ public class ModBlocks {
         SlippyIce.LOGGER.info("Registering Mod Blocks for " + SlippyIce.MOD_ID);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(ModBlocks.SLIPPY_ICE);
+
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(ModBlocks.SLIPPY_ICE_STAIRS);
+
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.add(ModBlocks.SLIPPY_ICE_SLAB);
+
         });
     }
 }

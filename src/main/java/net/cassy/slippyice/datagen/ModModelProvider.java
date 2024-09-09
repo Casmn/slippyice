@@ -14,7 +14,10 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SLIPPY_ICE);
+        BlockStateModelGenerator.BlockTexturePool slippyIcePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SLIPPY_ICE);
+
+        slippyIcePool.stairs(ModBlocks.SLIPPY_ICE_STAIRS);
+        slippyIcePool.slab(ModBlocks.SLIPPY_ICE_SLAB);
     }
 
     @Override
